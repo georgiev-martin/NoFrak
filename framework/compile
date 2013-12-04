@@ -1,0 +1,8 @@
+rm -rf ./bin
+rm -rf ./gen
+rm -rf cordova-2.9.0.jar
+rm -rf proguard-project.txt
+android update project -p . -t android-17
+ant jar
+rm -rf /Users/mgeorgiev/Development/PhoneGaps/PhoneGapTestApp/libs/cordova.jar
+cp cordova-2.9.0.jar /Users/mgeorgiev/Development/PhoneGaps/PhoneGapTestApp/libs/cordova.jar
