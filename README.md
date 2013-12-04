@@ -18,6 +18,12 @@
 # under the License.
 #
 -->
+
+NoFrak
+===
+NoFrak is a Proof of Concept implementation for Android designed to prevent fracking attacks described in "Breaking and Fixing Origin-Based Access Control in Hybrid Web/Mobile Application Frameworks", by Martin Georgiev, Suman Jana, and Vitaly Shmatikov. NDSS 2014.
+
+
 Cordova Android
 ===
 
