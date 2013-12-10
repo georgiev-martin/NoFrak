@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>getCurrencyPattern Example</title>
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    function checkPattern() {
+      navigator.globalization.getCurrencyPattern(
+        'USD',
+        function (pattern) {alert('pattern: '  + pattern.pattern  + '\n' +
+                                  'code: '     + pattern.code     + '\n' +
+                                  'fraction: ' + pattern.fraction + '\n' +
+                                  'rounding: ' + pattern.rounding + '\n' +
+                                  'decimal: '  + pattern.decimal  + '\n' +
+                                  'grouping: ' + pattern.grouping);},
+        function () {alert('Error getting pattern\n');}
+      );
+    }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="checkPattern()">Click for pattern</button>
+  </body>
+</html>

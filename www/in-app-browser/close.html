@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InAppBrowser.close Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+         var ref = window.open('http://apache.org', '_blank', 'location=yes');
+         // close InAppBrowser after 5 seconds
+         setTimeout(function() {
+             ref.close();
+         }, 5000);
+    }
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

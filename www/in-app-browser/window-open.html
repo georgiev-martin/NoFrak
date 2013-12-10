@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>window.open Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // external url
+        var ref = window.open(encodeURI('http://apache.org'), '_blank', 'location=yes');
+        // relative document
+        ref = window.open('next.html', '_self');
+    }
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

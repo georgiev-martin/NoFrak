@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>isDayLightSavingsTime Example</title>
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    function checkDayLightSavings() {
+      navigator.globalization.isDayLightSavingsTime(
+        new Date(),
+        function (date) {alert('dst: ' + date.dst + '\n');},
+        function () {alert('Error getting names\n');}
+      );
+    }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="checkDayLightSavings()">Click for daylight savings</button>
+  </body>
+</html>

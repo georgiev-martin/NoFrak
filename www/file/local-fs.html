@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Local File System Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+        window.resolveLocalFileSystemURI("file:///sdcard/readme.txt", onResolveSuccess, fail);
+    }
+
+    function onFileSystemSuccess(fileSystem) {
+        console.log(fileSystem.name);
+    }
+
+    function onResolveSuccess(fileEntry) {
+        console.log(fileEntry.name);
+    }
+
+    function fail(evt) {
+        console.log(evt.target.error.code);
+    }
+
+    </script>
+  </head>
+  <body>
+    <h1>Example</h1>
+    <p>Local File System</p>
+  </body>
+</html>

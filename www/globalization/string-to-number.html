@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>stringToNumber Example</title>
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    function checkNumber() {
+      navigator.globalization.stringToNumber(
+        '1234.56',
+        function (number) {alert('number: ' + number.value + '\n');},
+        function () {alert('Error getting number\n');},
+        {type:'decimal'}
+      );
+    }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="checkNumber()">Click for parsed number</button>
+  </body>
+</html>

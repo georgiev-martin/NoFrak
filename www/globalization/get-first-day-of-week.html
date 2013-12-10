@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>getFirstDayOfWeek Example</title>
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    function checkFirstDay() {
+      navigator.globalization.getFirstDayOfWeek(
+        function (day) {alert('day: ' + day.value + '\n');},
+        function () {alert('Error getting day\n');}
+      );
+    }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="checkFirstDay()">Click for first day of week</button>
+  </body>
+</html>

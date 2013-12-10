@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>getPreferredLanguage Example</title>
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    function checkLanguage() {
+      navigator.globalization.getPreferredLanguage(
+        function (language) {alert('language: ' + language.value + '\n');},
+        function () {alert('Error getting language\n');}
+      );
+    }
+    </script>
+  </head>
+  <body>
+    <button onclick="checkLanguage()">Click for language</button>
+  </body>
+</html>

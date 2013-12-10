@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Splashscreen Example</title>
+        
+        <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            
+            function onLoad() {
+                // Wait for Cordova to load
+            	document.addEventListener("deviceready", onDeviceReady, false);
+            }
+            
+            
+            // Cordova is ready
+            function onDeviceReady() {
+		navigator.splashscreen.hide(); 
+               	setTimeout("show();", 10000);            
+            }
+
+
+	    function show() {
+		navigator.splashscreen.show();
+            }
+            </script>
+    </head>
+    <body onload="onLoad()">
+        <h1>Splashscreen Example</h1>
+        <div>The splashscreen disappears once the webpage gets a onDeviceReady event</div>
+    </body>
+</html>

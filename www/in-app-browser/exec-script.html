@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InAppBrowser.executeScript Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Global InAppBrowser reference
+    var iabRef = null;
+
+    // Inject our custom JavaScript into the InAppBrowser window
+    //
+    function replaceHeaderImage() {
+        iabRef.executeScript(
+            {code: "var img=document.querySelector('#header img'); img.src='http://cordova.apache.org/images/cordova_bot.png';"},
+            function() {
+                 alert("Image Element Successfully Hijacked");
+            });
+    }
+
+    function iabClose(event) {
+         iabRef.removeEventListener('loadstop', replaceHeaderImage);
+         iabRef.removeEventListener('exit', iabClose);
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+         iabRef = window.open('http://apache.org', '_blank', 'location=yes');
+         iabRef.addEventListener('loadstop', replaceHeaderImage);
+         iabRef.addEventListener('exit', iabClose);
+    }
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

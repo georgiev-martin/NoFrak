@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>numberToString Example</title>
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    function checkNumber() {
+      navigator.globalization.numberToString(
+        3.1415926,
+        function (number) {alert('number: ' + number.value + '\n');},
+        function () {alert('Error getting number\n');},
+        {type:'decimal'}
+      );
+    }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="checkNumber()">Click for number</button>
+  </body>
+</html>

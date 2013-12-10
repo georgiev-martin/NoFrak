@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>GlobalizationError Example</title>
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    function successCallback(date) {
+      alert('month:' + date.month +
+            ' day:' + date.day +
+            ' year:' + date.year + '\n');
+    }
+
+    function errorCallback(error) {
+      alert('code: ' + error.code + '\n' +
+            'message: ' + error.message + '\n');
+    };
+
+    function checkError() {
+      navigator.globalization.stringToDate(
+        'notADate',
+        successCallback,
+        errorCallback,
+        {selector:'foobar'}
+      );
+    }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="checkError()">Click for error</button>
+  </body>
+</html>

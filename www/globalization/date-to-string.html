@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>dateToString Example</title>
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    function checkDateString() {
+      navigator.globalization.dateToString(
+        new Date(),
+        function (date) {
+		alert('date: ' + date.value + '\n');
+	},
+        function () {
+		alert('Error getting dateString\n'),
+        	{formatLength:'short', selector:'date and time'}
+	}
+      );
+    }
+    </script>
+  </head>
+  <body>
+    <button onclick="checkDateString()">Click for date string</button>
+  </body>
+</html>

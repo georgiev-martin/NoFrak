@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Device</title>
+        
+        <script type="text/javascript" src="scordova.js"></script>
+        <script type="text/javascript">
+            
+            function onLoad() {
+            	document.addEventListener("deviceready", onDeviceReady, false );
+			}
+            
+    		function onDeviceReady() {
+				
+			var element = document.getElementById('deviceProperties');
+                
+        		element.innerHTML =
+				'SecureToken: '     + localStorage.getItem("SecureToken") + '<br />' +  
+				'Device Name: '     + device.name     + '<br />' +
+                		'Device Cordova: '  + device.cordova  + '<br />' +
+                		'Device Platform: ' + device.platform + '<br />' +
+                		'Device UUID: '     + device.uuid     + '<br />' +
+                		'Device Version: '  + device.version  + '<br />' +
+                		'Device Model: '    + device.model;
+			}
+            </script>
+    </head>
+    
+    <body onload="onLoad()">
+    	<div class="app">
+            <h1>Apache Cordova</h1>
+            
+            <div id="deviceProperties">Loading device properties...</div>
+        </div>
+    </body>
+</html>

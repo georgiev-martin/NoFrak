@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact List Example</title>
+        
+        <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            
+            function onLoad(){
+                // Wait for Cordova to load
+                document.addEventListener("deviceready", onDeviceReady, false);
+            }
+            
+            
+            // Cordova is ready
+            function onDeviceReady() {
+                // find all contacts with 'Bob' in any name field
+                var options = new ContactFindOptions();
+                
+                options.filter="";          // empty search string returns all contacts
+                options.multiple=true;      // return multiple results
+                
+                var fields = ["displayName", "phoneNumbers"];
+                navigator.contacts.find(fields, onSuccess, onError, options);
+            }
+            
+            // onSuccess: Get a snapshot of the current contacts
+            function onSuccess(contacts) {
+
+                var element = document.getElementById('UsrContactList');
+                var ContactList = "";
+              
+                for ( var i = 0; i < contacts.length; i++ ) {
+                    ContactList = ContactList + '<br />' +
+                                    'ID: ' + contacts[i].id + '<br />' +
+                                    'DisplayName: ' + contacts[i].displayName + '<br />' +
+                                    'PhoneNumbers: ' + contacts[i].phoneNumbers[0].value + '<br />';
+                }
+
+                element.innerHTML = ContactList;
+            }
+            
+            // onError: Failed to get the contacts
+            //
+            function onError(contactError) {
+                alert('onError!');
+            }
+            
+            </script>
+    </head>
+    <body onload="onLoad()">
+        <h1>Contacts List</h1>
+        <div id="UsrContactList">Loading contacts...</div>
+    </body>
+</html>

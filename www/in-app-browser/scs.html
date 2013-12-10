@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InAppBrowser.insertCSS Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Global InAppBrowser reference
+    var iabRef = null;
+
+    // Inject our custom CSS into the InAppBrowser window 
+    //
+    function changeBackgroundColor() {
+        iabRef.insertCSS({code: "body{background-color:yellow;}"});
+    }    
+
+
+
+    function iabClose(event) {
+         iabRef.removeEventListener('loadstop', changeBackgroundColor);
+         iabRef.removeEventListener('exit', iabClose);
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+         iabRef = window.open('http://apache.org', '_blank', 'location=yes');
+         iabRef.addEventListener('loadstop', changeBackgroundColor);
+         iabRef.addEventListener('exit', iabClose);
+    }
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

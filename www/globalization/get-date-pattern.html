@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>getDatePattern Example</title>
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    function checkDatePattern() {
+      navigator.globalization.getDatePattern(
+        function (date) {alert('pattern: ' + date.pattern + '\n');},
+        function () {alert('Error getting pattern\n');},
+        {formatLength:'short', selector:'date and time'}
+      );
+    }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="checkDatePattern()">Click for pattern</button>
+  </body>
+</html>

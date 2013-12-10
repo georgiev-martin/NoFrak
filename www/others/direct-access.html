@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Direct Resource Access</title>
+        <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+        <script>
+		function onSuccess (contacts) {
+			var element = document.getElementById('UsrContactList');
+                	var ContactList = "";
+             
+                	for ( var i = 0; i < contacts.length; i++ ) {
+                    		ContactList = ContactList + '<br />' +
+                                    'ID: ' + contacts[i].id + '<br />' +
+                                    'DisplayName: ' + contacts[i].displayName + '<br />' +
+                                    'PhoneNumbers: ' + contacts[i].phoneNumbers[0].value + '<br />';
+                	}
+
+                	element.innerHTML = ContactList;
+		}
+
+		function onError () {
+			alert("fail");
+		}
+
+		if (typeof(cordova.require)=="undefined") alert("UNDEFINED!");
+		
+		function test() {
+			execute = cordova.require('cordova/exec');
+			var opts = cordova.require('cordova/plugin/ContactFindOptions');
+			var options = new opts();
+			options.filter = ""; 
+			var fields = ["displayName", "phoneNumbers"];
+                        var win = function(result) {
+                                     var cs = [];
+                                     var length = result.length;
+                	      	     for (var i = 0; i < length; i++) {
+                    	        	var contact = cordova.require('cordova/plugin/Contact');
+					for(var property in result[i]) {
+				 	   contact[property] = result[i][property];
+					}
+					cs.push(contact);
+                              	     }
+                		     onSuccess(cs);
+           		 	  };
+
+			execute(win, onError, "Contacts", "search", [fields, options]);
+		}
+
+		setTimeout("test();", 5);
+	</script>
+  </head>
+  <body>
+	<h1>Contacts List</h1>
+        <div id="UsrContactList">Loading contacts...</div>
+  </body>
+</html>
+

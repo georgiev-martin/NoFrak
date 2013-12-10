@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>getDateNames Example</title>
+    <script type="text/javascript" charset="utf-8" src="scordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    function checkDateNames() {
+      navigator.globalization.getDateNames(
+        function (names) {
+          for (var i=0; i<names.value.length; i++) {
+            alert('month: ' + names.value[i] + '\n');
+          }
+        },
+        function () {alert('Error getting names\n');},
+        {type:'wide', item:'months'}
+      );
+    }
+
+    </script>
+  </head>
+  <body>
+    <button onclick="checkDateNames()">Click for date names</button>
+  </body>
+</html>
